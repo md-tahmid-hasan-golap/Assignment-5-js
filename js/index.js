@@ -29,7 +29,7 @@ function generateRandomColor(){
 
 
 document.getElementById("first_button").addEventListener("click", function(event){
-    alert('Board updated Successfully')
+    alert("Board updated Successfully")
     
     event.target.disabled = true;
     const renainTask = document.getElementById("remain_task").innerText = 5;
