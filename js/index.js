@@ -1,11 +1,14 @@
+// diffrient page 
 document.getElementById("discover_somthing").addEventListener("click" , function(){
-      window.location.href = "./main.html"
+    window.location.href = "./main.html"
 })
 
 
 
 
 
+
+//  random collor change
 
 let changeBtn = document.getElementById('click_img')
 
