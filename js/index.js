@@ -1,117 +1,112 @@
-// diffrient page 
-document.getElementById("discover_somthing").addEventListener("click" , function(){
-    window.location.href = "./main.html"
-})
 
-
-
-
-
-
-//  random collor change
-
-let changeBtn = document.getElementById('click_img')
-
-changeBtn.addEventListener('click',function(){
-    document.body.style.backgroundColor = generateRandomColor();
-})
-
-function generateRandomColor(){
-    let randomColor ="#" + Math.floor(Math.random()*16777215).toString(16)
-    return randomColor
-
-}
-
-
-
-// button diseble and change number
-
-
-
-document.getElementById("first_button").addEventListener("click", function(event){
-    alert("Board updated Successfully")
-    
-    event.target.disabled = true;
-    const renainTask = document.getElementById("remain_task").innerText = 5;
-    const retupNumber = document.getElementById("setUp_number").innerText = 24;
-    document.getElementById("activity1").innerText="You have complate the task Fix mobile issu at 12 : 48 : 15 PM"
-   
-      
-   
-})
-document.getElementById("first_button1").addEventListener("click", function(event){
-    alert('Board updated Successfully')
-    event.target.disabled = true;
-    const renainTask = document.getElementById("remain_task").innerText = 4;
-    const retupNumber = document.getElementById("setUp_number").innerText = 25;
-     document.getElementById("activity1").innerText="You have complate the task Add Dark Modeat 12 : 48 : 15 PM"
-      
-   
-})
-document.getElementById("first_button2").addEventListener("click", function(event){
-    alert('Board updated Successfully')
-    event.target.disabled = true;
-    const renainTask = document.getElementById("remain_task").innerText = 3;
-    const retupNumber = document.getElementById("setUp_number").innerText = 26;
-     document.getElementById("activity1").innerText="You have complate the task Optimize Home page  at 12 : 48 : 15 PM"
-      
-   
-})
-document.getElementById("first_button3").addEventListener("click", function(event){
-    alert('Board updated Successfully')
-    event.target.disabled = true;
-    const renainTask = document.getElementById("remain_task").innerText = 2;
-    const retupNumber = document.getElementById("setUp_number").innerText = 27;
-     document.getElementById("activity1").innerText="You have complate the task Add new emojiat 12 : 48 : 15 PM"
-      
-   
-})
-document.getElementById("first_button4").addEventListener("click", function(event){
-    alert('Board updated Successfully')
-    event.target.disabled = true;
-    const renainTask = document.getElementById("remain_task").innerText = 1;
-    const retupNumber = document.getElementById("setUp_number").innerText = 28;
-     document.getElementById("activity1").innerText="You have complate the task Integrate OpenAI APIat 12 : 48 : 15 PM"
-      
-   
-})
-document.getElementById("first_button5").addEventListener("click", function(event){
-    alert('Board updated Successfully')
-    alert("congratulations! All Task Complite")
-    event.target.disabled = true;
-    const renainTask = document.getElementById("remain_task").innerText = 6;
-    
-
-    const retupNumber = document.getElementById("setUp_number").innerText = 29;
-     document.getElementById("activity1").innerText="You have complate the task Improve Job searchingat 12 : 48 : 15 PM"
-      
-   
-})
-
-document.getElementById("clearHistory").addEventListener("click", function(){
-    const items = document.getElementsByClassName("activiry");
-    for(let item of items){
-       item.innerText = " "
-    }
-})
-// document.getElementById("clearHistory").addEventListener("click", function(){
-//      document.getElementById("activity1").innerText = " "
-// })
-// document.getElementById("clearHistory").addEventListener("click", function(){
-//      document.getElementById("activity2").innerText = " "
-// })
-// document.getElementById("clearHistory").addEventListener("click", function(){
-//      document.getElementById("activity3").innerText = " "
-// })
-// document.getElementById("clearHistory").addEventListener("click", function(){
-//      document.getElementById("activity4").innerText = " "
-// })
-// document.getElementById("clearHistory").addEventListener("click", function(){
-//      document.getElementById("activity5").innerText = " "
-// })
-// document.getElementById("clearHistory").addEventListener("click", function(){
-//      document.getElementById("activity6").innerText = " "
-// })
+// Set today's date on page load
+window.addEventListener("load", function () {
+    const today = new Date();
+    const options = {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    };
+    document.getElementById("dateDisplay").textContent = today.toLocaleDateString(
+      "en-US",
+      options
+    );
+  });
+  
+  // Set Theme color
+  
+  document.getElementById("themeButton").addEventListener("click", function () {
+    const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    document.body.style.backgroundColor = randomColor;
+  });
+  
+  // set deadline for each task
+  
+  function setDeadline(elementId) {
+    const today = new Date();
+    const options = {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    };
+    document.getElementById(
+      elementId
+    ).textContent = `Deadline: ${today.toLocaleDateString("en-US", options)}`;
+  }
+  
+  window.addEventListener("load", function () {
+    setDeadline("deadline");
+    setDeadline("deadline2");
+    setDeadline("deadline3");
+    setDeadline("deadline4");
+    setDeadline("deadline5");
+    setDeadline("deadline6");
+  });
+  
+  // clear history
+  document.getElementById("clearHistory").addEventListener("click", function () {
+    document
+      .querySelectorAll(".text-sm.text-gray-700.space-y-2 li")
+      .forEach(function (element) {
+        element.textContent = "";
+      });
+  });
+  
+  // Complete btn
+  
+  function completeTask(buttonId, headerId, activityId) {
+    document.getElementById(buttonId).addEventListener("click", function () {
+      this.textContent = "Completed";
+      this.classList.remove("bg-purple-500");
+      this.classList.add("bg-gray-500");
+      this.disabled = true;
+  
+      const taskName = document.getElementById(headerId).textContent;
+      const now = new Date();
+      const options = {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+      };
+      document.getElementById(
+        activityId
+      ).textContent = `✔You have completed task: ${taskName} completed on ${now.toLocaleDateString(
+        "en-US",
+        options
+      )}`;
+  
+      // Update completed-task and remain-task counts
+      const completedTaskElement = document.getElementById("completed-task");
+      const remainTaskElement = document.getElementById("remain-task");
+      completedTaskElement.textContent =
+        parseInt(completedTaskElement.textContent) + 1;
+      remainTaskElement.textContent = parseInt(remainTaskElement.textContent) - 1;
+      // Alert message
+      alert("Board updated successfully");
+      if (document.querySelectorAll(".bg-purple-500").length === 0) {
+        alert("You have successfully completed all tasks");
+      }
+    });
+  }
+  
+  completeTask("completed-btn", "header1", "activity1");
+  completeTask("completed-btn2", "header2", "activity2");
+  completeTask("completed-btn3", "header3", "activity3");
+  completeTask("completed-btn4", "header4", "activity4");
+  completeTask("completed-btn5", "header5", "activity5");
+  completeTask("completed-btn6", "header6", "activity6");
+  
+  // go to blog page
+  
+  document.getElementById("something-new").addEventListener("click", function () {
+    window.location.href = "./main.html";
+  });
+  
 
 
 
