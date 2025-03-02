@@ -35,6 +35,7 @@ document.getElementById("first_button").addEventListener("click", function(event
     const renainTask = document.getElementById("remain_task").innerText = 5;
     const retupNumber = document.getElementById("setUp_number").innerText = 24;
     document.getElementById("activity1").innerText="You have complate the task Fix mobile issu at 12 : 48 : 15 PM"
+   
       
    
 })
@@ -76,8 +77,11 @@ document.getElementById("first_button4").addEventListener("click", function(even
 })
 document.getElementById("first_button5").addEventListener("click", function(event){
     alert('Board updated Successfully')
+    alert("congratulations! All Task Complite")
     event.target.disabled = true;
     const renainTask = document.getElementById("remain_task").innerText = 6;
+    
+
     const retupNumber = document.getElementById("setUp_number").innerText = 29;
      document.getElementById("activity1").innerText="You have complate the task Improve Job searchingat 12 : 48 : 15 PM"
       
@@ -106,16 +110,3 @@ document.getElementById("clearHistory").addEventListener("click", function(){
 
 
 
-
-
-
-
-
-
-
-
-// document.getElementById("clearHistory").addEventListener("click", function () {
-//     document.querySelectorAll(".text-sm.text-gray-700.space-y-2 li").forEach(function (element) {
-//         element.textContent = "";
-//     });
-// });
