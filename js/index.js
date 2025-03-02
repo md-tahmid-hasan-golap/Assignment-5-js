@@ -88,25 +88,35 @@ document.getElementById("first_button5").addEventListener("click", function(even
    
 })
 
+document.getElementById("clearHistory").addEventListener("click", function(){
+    const items = document.getElementsByClassName("activiry");
+    for(let item of items){
+       item.innerText = " "
+    }
+})
+// document.getElementById("clearHistory").addEventListener("click", function(){
+//      document.getElementById("activity1").innerText = " "
+// })
+// document.getElementById("clearHistory").addEventListener("click", function(){
+//      document.getElementById("activity2").innerText = " "
+// })
+// document.getElementById("clearHistory").addEventListener("click", function(){
+//      document.getElementById("activity3").innerText = " "
+// })
+// document.getElementById("clearHistory").addEventListener("click", function(){
+//      document.getElementById("activity4").innerText = " "
+// })
+// document.getElementById("clearHistory").addEventListener("click", function(){
+//      document.getElementById("activity5").innerText = " "
+// })
+// document.getElementById("clearHistory").addEventListener("click", function(){
+//      document.getElementById("activity6").innerText = " "
+// })
 
-document.getElementById("clearHistory").addEventListener("click", function(){
-     document.getElementById("activity1").innerText = " "
-})
-document.getElementById("clearHistory").addEventListener("click", function(){
-     document.getElementById("activity2").innerText = " "
-})
-document.getElementById("clearHistory").addEventListener("click", function(){
-     document.getElementById("activity3").innerText = " "
-})
-document.getElementById("clearHistory").addEventListener("click", function(){
-     document.getElementById("activity4").innerText = " "
-})
-document.getElementById("clearHistory").addEventListener("click", function(){
-     document.getElementById("activity5").innerText = " "
-})
-document.getElementById("clearHistory").addEventListener("click", function(){
-     document.getElementById("activity6").innerText = " "
-})
+
+
+
+
 
 
 
